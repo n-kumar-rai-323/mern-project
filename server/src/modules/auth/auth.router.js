@@ -1,5 +1,6 @@
 const authRouter = require("express").Router();
-
+const validateData = require("../../middlewares/validator.middleware");
+const authCtrl = require("./auth.controller")
 
 authRouter.get("/home", (req, res, next) => {
     res.json({
@@ -15,5 +16,8 @@ authRouter.get("/about-us", (req, res, next) => {
         status: "success"
     });
 });
+
+
+authRouter.post("/register", validateData, authCtrl.register)
 
 module.exports = authRouter;
