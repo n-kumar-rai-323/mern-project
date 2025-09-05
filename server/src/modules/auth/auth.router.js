@@ -18,6 +18,6 @@ authRouter.get("/about-us", (req, res, next) => {
 });
 
 
-authRouter.post("/register", validateData, authCtrl.register)
+authRouter.post("/register", validateData(), authCtrl.register)
 
 module.exports = authRouter;
